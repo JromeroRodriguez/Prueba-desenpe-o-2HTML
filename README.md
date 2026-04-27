@@ -1,4 +1,4 @@
-#  The Shattered Riffs – Rock Band Landing Page BY: Joseph Romero Coder: RIWI 
+#  The Shattered Riffs – Rock Band Landing Page BY: Joseph Romero Coder RIWI 
 
 A fully responsive landing page for a fictional rock band, built with semantic HTML5 and CSS3.
 
