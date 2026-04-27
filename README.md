@@ -1,29 +1,17 @@
-# 🎸 Landing Page – Rock Band (HTML & CSS Assessment)
+#  The Shattered Riffs – Rock Band Landing Page
 
-## 📌 Project Overview
-
-This project is a **starter template** for a performance assessment focused on building a responsive landing page for a rock band.
-
-The goal is to transform this base into a **visually engaging, responsive, and well-structured website** that promotes the band, their identity, and upcoming events.
+A fully responsive landing page for a fictional rock band, built with semantic HTML5 and CSS3.
 
 ---
 
-## 🎯 What is Expected
+##  How to Run
 
-You are expected to:
-
-* Build a complete landing page using **semantic HTML5**.
-* Apply **CSS3 styles** to achieve a strong visual identity (rock style).
-* Implement **responsive design** for both:
-
-  * Desktop (>1024px)
-  * Mobile
-* Use **Flexbox and/or Grid** where appropriate.
-* Ensure the page is **clean, readable, and well-organized**.
+1. Clone or download the project
+2. Open `index.html` in your browser — no installation required
 
 ---
 
-## 🧱 Project Structure
+##  Project Structure
 
 ```
 ├── assets
@@ -42,146 +30,56 @@ You are expected to:
 
 ---
 
-## 🧩 HTML Guidelines
+## Sections
 
-Your `index.html` already includes the base structure.
-
-You must:
-
-* Use semantic tags:
-
-  * `<header>`
-  * `<nav>`
-  * `<main>`
-  * `<section>`
-  * `<article>`
-  * `<footer>`
-
-* Include the following sections:
-
-  * Hero (main visual section)
-  * Events (band tour dates)
-  * About (band info)
-  * Multimedia (images or media content)
-
-* Add at least one **unordered list (`<ul>`)**:
-
-  * Influences
-  * Values
-  * Social links
-
-* (Optional – Extra Points)
-
-  * Use a **table (`<table>`)** for events
-
-👉 Focus on **clean structure and readability**.
+| Section | Description |
+|---|---|
+| **Header** | Fixed top bar with logo and navigation links |
+| **Hero** | Full-viewport image with overlay text and CTA button |
+| **Events** | Upcoming tour dates in a styled `<table>` with Buy Now buttons |
+| **About** | Band description, influences list, and photo in a CSS Grid layout |
+| **Media** | 7-image gallery + embedded YouTube video in a responsive grid |
+| **Footer** | 4-column link grid, social links, and copyright |
 
 ---
 
-## 🎨 CSS Guidelines
+##  Design Decisions
 
-The provided `style.css` is intentionally minimal.
-
-You should:
-
-* Define your own:
-
-  * Colors (rock style recommended)
-  * Typography
-  * Spacing
-
-* Apply layout techniques:
-
-  * Flexbox
-  * Grid
-
-* Implement responsive design using **media queries**
-
-* Ensure:
-
-  * Proper spacing between sections
-  * Visual hierarchy (titles, buttons, content)
-  * Consistent styling
-
-👉 Avoid writing everything in one block. Organize your CSS clearly.
+- **Color palette:** `#0b0b0f` (dark background), `#e63946` (red accent), `#f5f5f5` (light text)
+- **Typography:** Arial/Helvetica — bold, uppercase headings for a rock editorial feel
+- **Layout:** CSS Grid for About, Media, and Footer sections; Flexbox for Header and nav
+- **Hero:** Full-height background image with a dark overlay and centered call-to-action
+- **Accent borders:** Red (`#e63946`) used on the band photo, video iframe, and footer top border
 
 ---
 
-## 📱 Responsive Design
+##  Features Implemented
 
-Your site **must adapt** to different screen sizes.
-
-Minimum requirement:
-
-* Desktop layout (>1024px)
-* Mobile layout
-
-Hints:
-
-* Stack elements vertically on mobile
-* Consider navigation behavior (e.g., hamburger menu)
-* Resize images and text properly
+- Semantic HTML5 (`header`, `nav`, `main`, `section`, `article`, `footer`)
+- Responsive design with media queries (mobile breakpoint at 768px)
+- Hamburger menu button (`.menu-toggle`) for mobile — JS-ready
+- Events table with styled `Buy Now` buttons
+- Unordered list of band influences
+- CSS Grid media gallery with embedded YouTube iframe
+- Hover transitions on nav links, buttons, and footer links
+- Social links in footer (Instagram, Spotify, YouTube)
+- Dynamic copyright year via `<span id="year">` (populated by `main.js`)
 
 ---
 
-## 🖼️ Images & Assets
+## Responsive Behavior
 
-Inside `/assets/img` you will find:
-
-* Multiple images (`img-1.jpg` to `img-10.jpg`)
-* A visual reference: `guide.png`
-
-Use these images to:
-
-* Build the hero section
-* Populate the gallery
-* Add visual identity to the page
-
-⚠️ The guide is a **reference**, not something to copy exactly.
+- **Desktop (>768px):** 4-column footer, 4-column media grid, side-by-side About layout
+- **Mobile (≤768px):** Single-column stacking, hamburger menu replaces nav, 2-column media grid with full-width video
 
 ---
 
-## ⚙️ JavaScript (Optional)
+## Tech Stack
 
-The file `main.js` is included for optional enhancements:
-
-* Mobile menu toggle
-* Simple interactions
-
-This is **not required**, but can give extra value.
+- HTML5
+- CSS3 (Flexbox + Grid)
+- Vanilla JavaScript (menu toggle, dynamic year)
 
 ---
 
-## 📝 Good Practices
 
-* Keep your code **clean and readable**
-* Use indentation consistently
-* Write comments when necessary (in English)
-* Organize sections clearly
-
----
-
-## 🚀 How to Run
-
-1. Download or clone the project
-2. Open `index.html` in your browser
-
-No installation required.
-
----
-
-## 🧠 Final Note
-
-This project is not about copying a design exactly.
-
-It is about:
-
-* Understanding structure
-* Making design decisions
-* Applying responsive techniques
-
-Your solution should reflect your own approach while meeting the requirements.
-
----
-
-🔥 Good luck and rock on!
