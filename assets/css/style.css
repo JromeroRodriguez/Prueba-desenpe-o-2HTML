@@ -1,9 +1,14 @@
+/* ============================================================
+   RESET & BASE
+   Elimina márgenes/padding por defecto y estandariza el box model
+   ============================================================ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Tipografía base, fondo oscuro y color de texto claro */
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #0b0b0f;
@@ -11,11 +16,16 @@ body {
     line-height: 1.5;
 }
 
+
+/* ============================================================
+   HEADER
+   Flexbox para alinear logo y nav en los extremos
+   ============================================================ */
 .header__content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    position: relative; /* necesario para el menú móvil absoluto */
 }
 
 .logo {
@@ -28,6 +38,11 @@ body {
     width: auto;
 }
 
+
+/* ============================================================
+   NAV
+   Lista horizontal con hover de subrayado rojo
+   ============================================================ */
 .nav__list {
     display: flex;
     gap: 25px;
@@ -40,15 +55,15 @@ body {
     font-size: 0.9rem;
     transition: color 0.3s ease, border-bottom 0.3s ease;
     padding-bottom: 5px;
-    border-bottom: 2px solid transparent;
+    border-bottom: 2px solid transparent; /* invisible por defecto */
 }
 
 .nav__list a:hover {
     color: #e63946;
-    border-bottom: 2px solid #e63946;
+    border-bottom: 2px solid #e63946; /* subrayado rojo al hacer hover */
 }
 
-
+/* Botón hamburguesa — oculto en desktop, visible en mobile */
 .menu-toggle {
     display: none;
     background: none;
@@ -58,11 +73,18 @@ body {
     cursor: pointer;
 }
 
+
+/* ============================================================
+   UTILIDADES GLOBALES
+   ============================================================ */
+
+/* Todas las imágenes respetan su contenedor */
 img {
     max-width: 100%;
     display: block;
 }
 
+/* Links sin subrayado, heredan color del padre */
 a {
     text-decoration: none;
     color: inherit;
@@ -73,6 +95,7 @@ main {
     margin: 0 auto;
 }
 
+/* Separación vertical entre secciones */
 section {
     margin: 3rem 0;
 }
@@ -81,15 +104,27 @@ h1, h2, h3 {
     margin-bottom: 1rem;
 }
 
-/* HERO SECTION */
+/* Contenedor centrado con padding lateral */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* ============================================================
+   HERO SECTION
+   Imagen de fondo a pantalla completa con overlay oscuro
+   ============================================================ */
 .hero {
     position: relative;
     height: 80vh;
     min-height: 400px;
     overflow: hidden;
-    margin: 0; /* Full width look */
+    margin: 0;
 }
 
+/* La imagen se posiciona absoluta detrás del overlay */
 .hero img {
     position: absolute;
     top: 0;
@@ -100,6 +135,7 @@ h1, h2, h3 {
     z-index: -1;
 }
 
+/* Overlay semitransparente para legibilidad del texto */
 .hero__overlay {
     height: 100%;
     display: flex;
@@ -107,7 +143,7 @@ h1, h2, h3 {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: rgba(0, 0, 0, 0.5); 
+    background: rgba(0, 0, 0, 0.5);
     padding: 0 20px;
 }
 
@@ -127,7 +163,7 @@ h1, h2, h3 {
     color: #f5f5f5;
 }
 
-
+/* Botón CTA reutilizable */
 .btn {
     background-color: #e63946;
     color: #fff;
@@ -144,6 +180,11 @@ h1, h2, h3 {
     transform: scale(1.05);
 }
 
+
+/* ============================================================
+   EVENTS SECTION
+   Fondo oscuro con tabla de fechas de tour
+   ============================================================ */
 section#events {
     text-align: center;
     background-color: #1a1a1f;
@@ -156,6 +197,7 @@ section#events {
     margin-bottom: 2rem;
 }
 
+/* Tabla centrada, sin espacios entre bordes */
 .events__table {
     width: 100%;
     max-width: 1000px;
@@ -164,6 +206,7 @@ section#events {
     background-color: #1a1a1f;
 }
 
+/* Encabezado de tabla con acento rojo */
 .events__table thead {
     background-color: #c92a35;
     color: #fff;
@@ -171,13 +214,13 @@ section#events {
     letter-spacing: 1px;
 }
 
-.events__table th, 
+.events__table th,
 .events__table td {
     padding: 1.2rem;
     border: 1px solid #eb6262;
 }
 
-
+/* Botón de compra dentro de la tabla */
 .events__table button {
     background-color: #e63946;
     color: #fff;
@@ -194,14 +237,13 @@ section#events {
     transform: scale(1.05);
 }
 
-/* Puedes usar esto si quieres centrar contenido */
-.container {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-}
 
-/* ABOUT SECTION */
+/* ============================================================
+   ABOUT SECTION
+   CSS Grid de 2 columnas: imagen a la izquierda, texto a la derecha
+   display: contents en .about__content permite que sus hijos
+   participen directamente en el grid del padre (.about)
+   ============================================================ */
 .about {
     background-color: #111118;
     padding: 3rem 2rem;
@@ -211,7 +253,7 @@ section#events {
     gap: 0 3rem;
 }
 
-/* h2 va arriba a la derecha */
+/* H2 posicionado en columna derecha, fila superior */
 .about h2 {
     grid-column: 2;
     grid-row: 1;
@@ -223,12 +265,12 @@ section#events {
     color: #ffffff;
 }
 
-/* .about__content se vuelve transparente para el grid */
+/* display: contents hace que los hijos hereden el grid del padre */
 .about__content {
     display: contents;
 }
 
-/* imagen ocupa columna izquierda, las 2 filas */
+/* Imagen ocupa toda la columna izquierda (filas 1 y 2) */
 .about__content img {
     grid-column: 1;
     grid-row: 1 / 3;
@@ -237,7 +279,7 @@ section#events {
     border: 2px solid #e63946;
 }
 
-/* artículo va abajo a la derecha */
+/* Texto en columna derecha, fila inferior */
 .about__content article {
     grid-column: 2;
     grid-row: 2;
@@ -250,9 +292,10 @@ section#events {
     line-height: 1.7;
 }
 
+/* Título de sección en rojo con espaciado de letras */
 .about__content article h3 {
     text-transform: uppercase;
-    color:#e63946;
+    color: #e63946;
     font-size: 0.85rem;
     letter-spacing: 2px;
     margin-bottom: 0.8rem;
@@ -269,121 +312,18 @@ section#events {
     color: #ddd;
 }
 
+/* Punto decorativo rojo como reemplazo del bullet por defecto */
 .about__content article ul li::before {
     content: '• ';
     color: #e63946;
     font-weight: bold;
 }
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
 
-    main {
-        width: 95%;
-    }
 
-    section {
-        margin: 2rem 0;
-    }
-
-    .about {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
-    }
-
-    .about h2 {
-        grid-column: 1;
-        grid-row: 2;
-    }
-
-    .about__content img {
-        grid-column: 1;
-        grid-row: 1;
-        width: 100%;
-    }
-
-    .about__content article {
-        grid-column: 1;
-        grid-row: 3;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #0b0b0f;
-        z-index: 100;
-        border-top: 2px solid #e63946;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .nav.active {
-        display: block;
-    }
-
-    .nav.active .nav__list {
-        flex-direction: column;
-        gap: 0;
-        display: flex;
-        padding: 0;
-    }
-
-    .nav.active .nav__list li {
-        border-bottom: 1px solid #1f1f27;
-    }
-
-    .nav.active .nav__list li a {
-        display: block;
-        padding: 14px 20px;
-        font-size: 1rem;
-    }
-
-    .media__grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-
-    .media__video {
-        grid-column: 1 / 3;
-        grid-row: auto;
-    }
-
-    #media h2 {
-        font-size: 1.8rem;
-    }
-
-    .footer__content {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .footer__content article h3 {
-        font-size: 0.85rem;
-    }
-
-    .footer__content .social {
-        grid-column: 1;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .footer__content p {
-        grid-column: 1;
-    }
-
-    .footer {
-        border-top: none;
-    }
-}
-
-/* MEDIA SECTION */
+/* ============================================================
+   MEDIA SECTION
+   Grid de 4 columnas con video ocupando 2x2 en la derecha
+   ============================================================ */
 #media {
     background-color: #1a1a1f;
     padding: 3rem 2rem;
@@ -413,21 +353,15 @@ section#events {
     border: 2px solid #333;
 }
 
-.media__grid img:nth-child(1) {
-    grid-column: 1;
-    grid-row: 1;
-}
+/* Posicionamiento explícito de cada imagen en el grid */
+.media__grid img:nth-child(1) { grid-column: 1; grid-row: 1; }
+.media__grid img:nth-child(2) { grid-column: 2; grid-row: 1; }
+.media__grid img:nth-child(3) { grid-column: 1; grid-row: 2; }
+.media__grid img:nth-child(5) { grid-column: 2; grid-row: 2; }
+.media__grid img:nth-child(6) { grid-column: 1; grid-row: 3; }
+.media__grid img:nth-child(7) { grid-column: 2; grid-row: 3; }
 
-.media__grid img:nth-child(2) {
-    grid-column: 2;
-    grid-row: 1;
-}
-
-.media__grid img:nth-child(3) {
-    grid-column: 1;
-    grid-row: 2;
-}
-
+/* El video ocupa las columnas 3-4 y filas 1-2 (bloque grande) */
 .media__video {
     grid-column: 3 / 5;
     grid-row: 1 / 3;
@@ -443,24 +377,11 @@ section#events {
     border: none;
 }
 
-.media__grid img:nth-child(5) {
-    grid-column: 2;
-    grid-row: 2;
-}
 
-.media__grid img:nth-child(6) {
-    grid-column: 1;
-    grid-row: 3;
-}
-
-.media__grid img:nth-child(7) {
-    grid-column: 2;
-    grid-row: 3;
-}
-
-
-
-/* FOOTER */
+/* ============================================================
+   FOOTER
+   Grid de 4 columnas con links, redes sociales y copyright
+   ============================================================ */
 .footer {
     background-color: #111118;
     padding: 3rem 2rem;
@@ -476,6 +397,7 @@ section#events {
     margin-bottom: 2rem;
 }
 
+/* Títulos de columna en rojo con mayúsculas */
 .footer__content article h3 {
     text-transform: uppercase;
     font-size: 0.9rem;
@@ -504,6 +426,7 @@ section#events {
     color: #e63946;
 }
 
+/* Redes sociales: span completo de las 4 columnas, centradas */
 .footer__content .social {
     grid-column: 1 / 5;
     display: flex;
@@ -526,6 +449,7 @@ section#events {
     color: #e63946;
 }
 
+/* Copyright centrado, span de 4 columnas */
 .footer__content p {
     grid-column: 1 / 5;
     text-align: center;
@@ -533,5 +457,125 @@ section#events {
     color: #999;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+
+/* ============================================================
+   RESPONSIVE — MOBILE (≤ 768px)
+   Reorganiza el layout a una sola columna
+   ============================================================ */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    main {
+        width: 95%;
+    }
+
+    section {
+        margin: 2rem 0;
+    }
+
+    /* About pasa a una sola columna: imagen → título → texto */
+    .about {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    .about h2 {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .about__content img {
+        grid-column: 1;
+        grid-row: 1;
+        width: 100%;
+    }
+
+    .about__content article {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    /* Activa el botón hamburguesa */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Nav oculto por defecto en mobile */
+    .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #0b0b0f;
+        z-index: 100;
+        border-top: 2px solid #e63946;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    /* JS agrega .active para mostrar el nav */
+    .nav.active {
+        display: block;
+    }
+
+    .nav.active .nav__list {
+        flex-direction: column;
+        gap: 0;
+        display: flex;
+        padding: 0;
+    }
+
+    .nav.active .nav__list li {
+        border-bottom: 1px solid #1f1f27;
+    }
+
+    .nav.active .nav__list li a {
+        display: block;
+        padding: 14px 20px;
+        font-size: 1rem;
+    }
+
+    /* Media grid pasa a 2 columnas, video ocupa el ancho completo */
+    .media__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .media__video {
+        grid-column: 1 / 3;
+        grid-row: auto;
+    }
+
+    #media h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Footer pasa a una sola columna */
+    .footer__content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .footer__content article h3 {
+        font-size: 0.85rem;
+    }
+
+    .footer__content .social {
+        grid-column: 1;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .footer__content p {
+        grid-column: 1;
+    }
+
+    .footer {
+        border-top: none;
+    }
 }
 
