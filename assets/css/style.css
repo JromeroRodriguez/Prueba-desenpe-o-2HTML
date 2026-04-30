@@ -476,6 +476,18 @@ section#events {
     section {
         margin: 2rem 0;
     }
+    section#events {
+        padding: 3rem 1rem;
+    }
+    .events__table th,
+    .events__table td {
+        padding: 0.7rem 0.5rem;
+    }
+ 
+    .events__table button {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
 
     /* About pasa a una sola columna: imagen → título → texto */
     .about {
